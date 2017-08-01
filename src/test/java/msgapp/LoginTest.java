@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
 /**
@@ -13,7 +14,13 @@ import org.openqa.selenium.interactions.Actions;
 public class LoginTest {
     @Test
     public void testLogIn() {
-        WebDriver driver = new ChromeDriver();
+
+        WebDriver driver;
+        if ("true".equals(System.getenv("TRAVIS"))){
+            driver = new FirefoxDriver();
+        } else {
+            driver = new ChromeDriver();
+        }
         driver.get("http://www.smsfun.com.au/joobz.php");
         WebElement username = driver.findElement(By.name("mobile"));
         System.out.println(System.getenv("MSGAPP_USERNAME"));
