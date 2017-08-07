@@ -1,14 +1,15 @@
 language: scala
 scala: 2.11.2
 
-
+addons:
+  firefox: latest
 
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - "wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz"
-  - "tar zxf geckodriver-v0.18.0-linux64.tar.gz"
-  - "sleep 3" # give xvfb some time to start
+ # - "wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz"
+ # - "tar zxf geckodriver-v0.18.0-linux64.tar.gz"
+  - sleep 3 # give xvfb some time to start
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION -Dwebdriver.gecko.driver=geckodriver test
