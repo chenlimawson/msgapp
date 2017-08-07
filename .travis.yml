@@ -8,7 +8,7 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - "wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz"
   - "tar zxf geckodriver-v0.18.0-linux64.tar.gz"
-  #- sleep 3 # give xvfb some time to start
+  - "sleep 3" # give xvfb some time to start
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION -Dwebdriver.gecko.driver=geckodriver test
