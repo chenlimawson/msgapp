@@ -11,8 +11,8 @@ before_script:
  # - "tar zxf geckodriver-v0.18.0-linux64.tar.gz"
   - sleep 3 # give xvfb some time to start
 
-script:
-  - sbt ++$TRAVIS_SCALA_VERSION -Dwebdriver.gecko.driver=geckodriver test
+#script:
+#  - sbt ++$TRAVIS_SCALA_VERSION -Dwebdriver.gecko.driver=geckodriver test
 
 before_cache:
   - find $HOME/.ivy2 -name "ivydata-*.properties" -delete
