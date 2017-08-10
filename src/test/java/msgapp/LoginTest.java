@@ -28,6 +28,7 @@ public class LoginTest {
         WebElement pwd = driver.findElement(By.name("pwd"));
         pwd.sendKeys(System.getenv("MSGAPP_PWD"));
         driver.findElement(By.name("submit")).click();
+        System.out.println(driver.getPageSource());
         WebElement joobzNum = driver.findElement(By.className("notice-joobz"));
         System.out.println(joobzNum.getText());
         //driver.findElement(By.linkText("Joobz")).click();
