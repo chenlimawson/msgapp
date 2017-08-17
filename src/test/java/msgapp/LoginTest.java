@@ -23,12 +23,10 @@ public class LoginTest {
         }
         driver.get("http://www.smsfun.com.au/joobz.php");
         WebElement username = driver.findElement(By.name("mobile"));
-        System.out.println(System.getenv("MSGAPP_USERNAME"));
         username.sendKeys(System.getenv("MSGAPP_USERNAME"));
         WebElement pwd = driver.findElement(By.name("pwd"));
         pwd.sendKeys(System.getenv("MSGAPP_PWD"));
         driver.findElement(By.name("submit")).click();
-        System.out.println(driver.getPageSource());
         WebElement joobzNum = driver.findElement(By.className("notice-joobz"));
         System.out.println(joobzNum.getText());
         //driver.findElement(By.linkText("Joobz")).click();
